@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            
-            $table->string('name', 30);
-            $table->string('email')->unique();
-            $table->string('password');
+        Schema::create('pet_tag', function (Blueprint $table) {
+
+            /* foreign keys, connected with other tables */
+            $table->foreignId('tag_id')->constrained('tags');
+            $table->foreignId('pet_id')->constrained('pets');
+
+            /* primary key */
+            $table->primary(['pet_id', 'tag_id']);
 
             /* created_at and updated_at */
             $table->timestamps();
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('pet_tag');
     }
 };
