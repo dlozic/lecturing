@@ -12,7 +12,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        dd('hello from TagController@index');
     }
 
     /**

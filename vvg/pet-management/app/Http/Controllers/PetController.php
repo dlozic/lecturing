@@ -12,7 +12,7 @@ class PetController extends Controller
      */
     public function index()
     {
-        //
+        dd('hello from PetController@index');
     }
 
     /**
