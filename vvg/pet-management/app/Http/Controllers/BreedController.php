@@ -12,7 +12,8 @@ class BreedController extends Controller
      */
     public function index()
     {
-        dd('hello from BreedController@index');
+        $breeds = Breed::all();
+        return view('breeds.index', ['breeds' => $breeds]);
     }
 
     /**
