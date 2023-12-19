@@ -24,6 +24,22 @@ return new class extends Migration
             /* created_at and updated_at */
             $table->timestamps();
         });
+
+        $seed = [[
+                'name' => 'Rex',
+                'weight' => 25.5,
+                'age' => 2,
+                'user_id' => 1,
+                'breed_id' => 1
+        ], [
+                'name' => 'Max',
+                'weight' => 15.5,
+                'age' => 1,
+                'user_id' => 1,
+                'breed_id' => 2
+        ]];
+
+        DB::table('pets')->insert($seed);
     }
 
     /**

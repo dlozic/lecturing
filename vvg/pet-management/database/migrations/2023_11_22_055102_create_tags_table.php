@@ -18,6 +18,15 @@ return new class extends Migration
             /* created_at and updated_at */
             $table->timestamps();
         });
+
+        $seed = [
+            ['name' => 'Crazy'],
+            ['name' => 'Lazy'],
+            ['name' => 'Sleepy'],
+            ['name' => 'Hungry'
+        ]];
+
+        DB::table('tags')->insert($seed);
     }
 
     /**

@@ -18,6 +18,19 @@ return new class extends Migration
             /* created_at and updated_at */
             $table->timestamps();
         });
+
+        $seed = [
+            ['name' => 'German Shepherd'],
+            ['name' => 'Bulldog'],
+            ['name' => 'Beagle'],
+            ['name' => 'Poodle'],
+            ['name' => 'Rottweiler'],
+            ['name' => 'Yorkshire Terrier'],
+            ['name' => 'Pointer'],
+            ['name' => 'Boxer']
+        ];
+
+        DB::table('breeds')->insert($seed);
     }
 
     /**

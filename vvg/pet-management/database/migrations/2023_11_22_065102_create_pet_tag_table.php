@@ -23,6 +23,16 @@ return new class extends Migration
             /* created_at and updated_at */
             $table->timestamps();
         });
+
+        $seed = [[
+                'tag_id' => 1,
+                'pet_id' => 1
+        ], [
+                'tag_id' => 2,
+                'pet_id' => 1
+        ]];
+
+        DB::table('pet_tag')->insert($seed);
     }
 
     /**

@@ -21,6 +21,18 @@ return new class extends Migration
             /* created_at and updated_at */
             $table->timestamps();
         });
+
+        $seed = [[
+                'name' => 'John Admin',
+                'email' => 'admin@vvg.hr',
+                'password' => bcrypt('admin') // hashing password
+        ], [
+                'name' => 'Jane User',
+                'email' => 'user@vvg.hr',
+                'password' => bcrypt('user')
+        ]];
+
+        DB::table('users')->insert($seed);
     }
 
     /**
