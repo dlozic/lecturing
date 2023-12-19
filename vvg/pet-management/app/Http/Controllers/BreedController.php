@@ -21,7 +21,7 @@ class BreedController extends Controller
      */
     public function create()
     {
-        //
+        return view('breeds.create');
     }
 
     /**
@@ -29,7 +29,12 @@ class BreedController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->validate([
+            'name' => 'required|min:3|max:30'
+        ]);
+
+        Breed::create($input);
+        return redirect()->route('breeds.index');
     }
 
     /**
@@ -45,7 +50,7 @@ class BreedController extends Controller
      */
     public function edit(Breed $breed)
     {
-        //
+        return view('breeds.edit', ['breed' => $breed]);
     }
 
     /**
@@ -53,7 +58,12 @@ class BreedController extends Controller
      */
     public function update(Request $request, Breed $breed)
     {
-        //
+        $input = $request->validate([
+            'name' => 'required|min:3|max:30'
+        ]);
+
+        $breed->update($input);
+        return redirect()->route('breeds.index');
     }
 
     /**
@@ -61,6 +71,7 @@ class BreedController extends Controller
      */
     public function destroy(Breed $breed)
     {
-        //
+        $breed->delete();
+        return redirect()->route('breeds.index');
     }
 }
