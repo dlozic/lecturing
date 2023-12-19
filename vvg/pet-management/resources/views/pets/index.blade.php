@@ -7,6 +7,8 @@
     <tr>
       <th>#</th>
       <th>Pet name</th>
+      <th>Weight</th>
+      <th>Age</th>
       <th>Created at</th>
       <th>Updated at</th>
       <th>Actions</th>
@@ -17,6 +19,8 @@
     <tr>
       <th>{{ $pet->id }}</th>
       <td>{{ $pet->name }}</td>
+      <td>{{ $pet->weight }}</td>
+      <td>{{ $pet->age }}</td>
       <td>{{ $pet->created_at }}</td>
       <td>{{ $pet->updated_at }}</td>
       <td>

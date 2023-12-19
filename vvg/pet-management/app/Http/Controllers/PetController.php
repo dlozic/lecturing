@@ -21,7 +21,7 @@ class PetController extends Controller
      */
     public function create()
     {
-        //
+        return view('pets.create');
     }
 
     /**
@@ -29,7 +29,9 @@ class PetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $this->validatePet($request);
+        Pet::create($input);
+        return redirect()->route('pets.index');
     }
 
     /**
@@ -45,7 +47,7 @@ class PetController extends Controller
      */
     public function edit(Pet $pet)
     {
-        //
+        return view('pets.edit', ['pet' => $pet]);
     }
 
     /**
@@ -53,7 +55,9 @@ class PetController extends Controller
      */
     public function update(Request $request, Pet $pet)
     {
-        //
+        $input = $this->validatePet($request);
+        $pet->update($input);
+        return redirect()->route('pets.index');
     }
 
     /**
@@ -61,6 +65,18 @@ class PetController extends Controller
      */
     public function destroy(Pet $pet)
     {
-        //
+        $pet->delete();
+        return redirect()->route('pets.index');
+    }
+
+    private function validatePet(Request $request)
+    {
+        $input = $request->validate([
+            'name' => 'required|max:255',
+            'weight' => 'required|numeric',
+            'age' => 'required|numeric',
+            'user_id' => 'required|exists:users,id',
+        ]);
+        return $input;
     }
 }

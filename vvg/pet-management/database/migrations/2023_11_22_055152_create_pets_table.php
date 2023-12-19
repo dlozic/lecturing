@@ -19,7 +19,9 @@ return new class extends Migration
 
             /* foreign keys, connected with other tables */
             $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('breed_id')->constrained('breeds');
+            $table->foreignId('breed_id')
+                  ->nullable()
+                  ->constrained('breeds');
             
             /* created_at and updated_at */
             $table->timestamps();
