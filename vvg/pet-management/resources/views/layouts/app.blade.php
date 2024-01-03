@@ -52,6 +52,14 @@
                 </div>
             </div>
         </nav>
+        <div class="container p-5">
+            @if(session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+            @endif
+            @if(session('error'))
+            <div class="alert alert-danger">{{ session('error') }}</div>
+            @endif
+        </div>
         <div class="container p-5">@yield('content')</div>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

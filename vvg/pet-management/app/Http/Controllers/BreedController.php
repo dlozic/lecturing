@@ -72,6 +72,6 @@ class BreedController extends Controller
     public function destroy(Breed $breed)
     {
         $breed->delete();
-        return redirect()->route('breeds.index');
+        return redirect()->route('breeds.index')->with('success', 'Record deleted successfully.');
     }
 }

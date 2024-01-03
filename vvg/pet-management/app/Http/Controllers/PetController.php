@@ -66,7 +66,7 @@ class PetController extends Controller
     public function destroy(Pet $pet)
     {
         $pet->delete();
-        return redirect()->route('pets.index');
+        return redirect()->route('pets.index')->with('success', 'Record deleted successfully.');
     }
 
     private function validatePet(Request $request)
