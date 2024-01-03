@@ -24,11 +24,11 @@ return new class extends Migration
 
         $seed = [[
                 'name' => 'John Admin',
-                'email' => 'admin@vvg.hr',
+                'email' => 'admin@pet-management.com',
                 'password' => bcrypt('admin') // hashing password
         ], [
                 'name' => 'Jane User',
-                'email' => 'user@vvg.hr',
+                'email' => 'user@pet-management.com',
                 'password' => bcrypt('user')
         ]];
 
