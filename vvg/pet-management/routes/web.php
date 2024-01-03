@@ -18,3 +18,5 @@ Route::resource('breeds', BreedController::class);
 Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::post('login', [AuthController::class, 'authenticate'])->name('authenticate');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('register', [AuthController::class, 'register'])->name('users.create');
+Route::post('register', [AuthController::class, 'create'])->name('users.store');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -31,5 +32,26 @@ class AuthController extends Controller
     {
         auth()->logout();
         return redirect()->route('login');
+    }
+
+    public function register()
+    {
+        return view('auth.register');
+    }
+
+    public function create(Request $request)
+    {
+        $credentials = $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string'
+        ]);
+
+        $credentials['password'] = bcrypt($credentials['password']);
+        $user = User::create($credentials);
+
+        auth()->login($user);
+
+        return redirect()->route('home');
     }
 }

@@ -2,6 +2,10 @@
 
 @section('content')
 
+
+<h2>Welcome, {{ auth()->user()->name }}!</h2>
+<hr />
+
 <!-- bootstrap panels with 4 counters -->
 <div class="row">
     <div class="col-sm-3">

@@ -25,5 +25,6 @@
         <input type="password" class="form-control" id="password" name="password" value="{{ env('LOGIN_SEED_PASSWORD', '') }}">
     </div>
     <button type="submit" class="btn btn-primary">Login</button>
+    <a href="{{ route('users.create') }}" class="btn btn-secondary float-end">Register</a>
 </form>
 @endsection

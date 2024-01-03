@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<a href="{{ route('users.create') }}" class="btn btn-primary float-end">Add User</a>
 <table class="table">
   <thead>
     <tr>
@@ -20,6 +19,7 @@
       <td>{{ $user->created_at }}</td>
       <td>{{ $user->updated_at }}</td>
       <td>
+        @if($user->id != Auth::user()->id)
         <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary btn-sm">Edit</a>
         <form action="{{ route('users.destroy', $user->id) }}" method="POST" class="d-inline">
           @csrf
@@ -27,6 +27,7 @@
           <button type="submit" class="btn btn-danger btn-sm">Delete</button>
         </form>
         </td>
+        @endif
     </tr>
     @endforeach
   </tbody>
