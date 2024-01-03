@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Breed;
 use App\Models\Pet;
+use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PetController extends Controller
@@ -21,7 +24,16 @@ class PetController extends Controller
      */
     public function create()
     {
-        return view('pets.create');
+        // get data for dropdowns and checkboxes
+        $users = User::all();
+        $breeds = Breed::all();
+        $tags = Tag::all();
+
+        return view('pets.create', [
+            'users' => $users,
+            'breeds' => $breeds,
+            'tags' => $tags,
+        ]);
     }
 
     /**
