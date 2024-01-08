@@ -2,8 +2,9 @@
 
 @section('content')
 
-
+@auth
 <h2>Welcome, {{ auth()->user()->name }}!</h2>
+@endauth
 <hr />
 
 <!-- bootstrap panels with 4 counters -->
